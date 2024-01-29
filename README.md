@@ -1,11 +1,11 @@
 # Cloudformation templates for launching imaxcom stack
 
-## Setup
+### Setup
 
 - Install aws cli and dependencies if not already
 - Put access_key_id, secret_access_key and session_token into .aws/credentials
 
-## Example
+### Example
 
 ```
 [aws-mkt-dev]
@@ -63,27 +63,27 @@ In aws-mkt-dev account:
 - "AvailZone1" and "AvailZone2" are defined as parameters to allow flexibility between different regions. Some azs are not necessarily in each region.
 - "Schedule" is used for use with potential automatic scheduling for shutdown of resources during non peak hours for non prod environments. EC2 instances and RDS are prime candidates.
 
-## Example launch the imax.com infra23 dev master stack in us-west-2:
+### Example launch the imax.com infra23 dev master stack in us-west-2:
 
 ```
 aws --profile aws-mkt-dev cloudformation create-stack --stack-name imaxcom-dev-mkt --template-body file://imaxcom-master.yaml --parameters file://launch-imaxcom-dev.json --region us-west-2 --capabilities CAPABILITY_NAMED_IAM
 
 ```
 
-## Update Master Stack:
+### Update Master Stack:
 
 ```
 aws --profile aws-mkt-dev cloudformation create-change-set --stack-name imaxcom-dev-mkt --change-set-name imaxcom-dev-date --template-body file://imaxcom-master.yaml --parameters file://update-imaxcom.json --region us-west-2 --capabilities CAPABILITY_NAMED_IAM
 
 ```
-## Example launch the imax.com infra23 dev master stack in us-east-1:
+### Example launch the imax.com infra23 dev master stack in us-east-1:
 
 ```
 aws --profile aws-mkt-dev cloudformation create-stack --stack-name imaxcom-dev-mkt --template-body file://imaxcom-master.yaml --parameters file://launch-imaxcom-dev.json --region us-east-1 --capabilities CAPABILITY_NAMED_IAM
 
 ```
 
-## Update Master Stack in us-east-1:
+### Update Master Stack in us-east-1:
 
 ```
 aws --profile aws-mkt-dev cloudformation create-change-set --stack-name imaxcom-dev-mkt --change-set-name imaxcom-dev-date --template-body file://imaxcom-master.yaml --parameters file://update-imaxcom.json --region us-east-1 --capabilities CAPABILITY_NAMED_IAM
